@@ -2,6 +2,7 @@ import React from 'react';
 import * as actions from '../actions'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import { Router, browserHistory } from 'react-router';
 
 class VideoForm extends React.Component{
   constructor(props){
@@ -11,8 +12,10 @@ class VideoForm extends React.Component{
     this.state={url:null}
   }
 
-  onUrlSubmit(url){
-    this.props.actions.urlSubmit(url)
+  onUrlSubmit(event){
+    event.preventDefault()
+    this.props.actions.urlSubmit(this.state.url)
+    browserHistory.push('/demarcized')
   }
 
   onUrlType(event){
@@ -22,7 +25,7 @@ class VideoForm extends React.Component{
   render(){
     return(
       <div className="video-form">
-        <form onSubmit={()=> {this.onUrlSubmit(this.state.url)}}>
+        <form onSubmit={this.onUrlSubmit}>
           <input type="text" placeholder="Youtube URL" onChange={this.onUrlType}></input>
           <input type="submit" value="Demarcize!"/>
         </form>
