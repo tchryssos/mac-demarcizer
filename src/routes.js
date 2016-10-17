@@ -9,6 +9,6 @@ import App from './App.js';
 export default (
   <Route path="/" component={App} >
     <IndexRoute component={VideoZone} />
-    <Route path="demarcized" component={VideoPlay}/>
+    <Route path="/demarcized" component={VideoPlay}/>
   </Route>
 )
