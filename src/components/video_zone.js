@@ -2,6 +2,7 @@ import React from 'react'
 import * as actions from '../actions'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import VideoForm from './video_form'
 
 
 class VideoZone extends React.Component{
@@ -11,7 +12,7 @@ class VideoZone extends React.Component{
 
   render(){
     return (
-      <h2> Video Goes Here </h2>
+      <VideoForm/>
     )
   }
 }
